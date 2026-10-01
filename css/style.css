@@ -1,0 +1,378 @@
+:root {
+    /* Cores */
+    --cor-primaria: #2563EB;
+    --cor-secundaria: #16A34A;
+    --cor-destaque: #F59E0B;
+    --cor-fundo: #F8FAFC;
+    --cor-branco: #FFFFFF;
+    --cor-texto: #1E293B;
+    --cor-texto-claro: #64748B;
+    --cor-borda: #CBD5E1;
+
+    /* Tipografia */
+    --fonte-pequena: 14px;
+    --fonte-normal: 16px;
+    --fonte-media: 20px;
+    --fonte-titulo: 28px;
+    --fonte-principal: 36px;
+
+    /* Espaçamentos */
+    --espaco-1: 4px;
+    --espaco-2: 8px;
+    --espaco-3: 16px;
+    --espaco-4: 24px;
+    --espaco-5: 32px;
+    --espaco-6: 48px;
+}
+
+
+/* Página */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    font-size: var(--fonte-normal);
+}
+
+
+/* Cabeçalho */
+
+header {
+    background-color: var(--cor-primaria);
+    color: var(--cor-branco);
+    padding: var(--espaco-4);
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header h1 {
+    font-size: var(--fonte-principal);
+}
+
+
+/* Menu */
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--espaco-2);
+}
+
+nav a {
+    color: var(--cor-branco);
+    margin: var(--espaco-2);
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+
+/* Dropdown */
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: var(--cor-branco);
+    min-width: 200px;
+    padding: var(--espaco-2);
+    z-index: 10;
+}
+
+.dropdown-menu a {
+    display: block;
+    color: var(--cor-texto);
+    padding: var(--espaco-2);
+    margin: 0;
+}
+
+.dropdown-menu a:hover {
+    background-color: var(--cor-fundo);
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+
+/* Botão do menu mobile */
+
+.menu-mobile {
+    display: none;
+    background-color: var(--cor-branco);
+    color: var(--cor-primaria);
+    border: none;
+    font-size: 24px;
+    padding: var(--espaco-2);
+    cursor: pointer;
+}
+
+
+/* Conteúdo principal */
+
+main {
+    max-width: 800px;
+    margin: var(--espaco-4) auto;
+    padding: var(--espaco-4);
+    background-color: var(--cor-branco);
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--espaco-4);
+}
+
+main > h2,
+main > form {
+    grid-column: 1 / 13;
+}
+
+main > section {
+    grid-column: 1 / 13;
+}
+
+
+/* Seções */
+
+section {
+    margin-bottom: var(--espaco-5);
+}
+
+h2 {
+    font-size: var(--fonte-titulo);
+}
+
+h3 {
+    font-size: var(--fonte-media);
+}
+
+p {
+    font-size: var(--fonte-normal);
+    line-height: 1.5;
+}
+
+
+/* Imagem */
+
+img {
+    width: 300px;
+    max-width: 100%;
+}
+
+
+/* Formulário */
+
+input,
+select,
+textarea {
+    padding: var(--espaco-2);
+    margin-top: var(--espaco-1);
+    border: 1px solid var(--cor-borda);
+    border-radius: 4px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--cor-primaria);
+}
+
+
+/* Botões */
+
+button {
+    padding: var(--espaco-2) var(--espaco-4);
+    background-color: var(--cor-secundaria);
+    color: var(--cor-branco);
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+button:hover {
+    opacity: 0.85;
+}
+
+button:active {
+    opacity: 0.7;
+}
+
+
+/* Badge */
+
+.badge {
+    display: inline-block;
+    background-color: var(--cor-secundaria);
+    color: var(--cor-branco);
+    padding: var(--espaco-1) var(--espaco-2);
+    border-radius: 4px;
+    font-size: var(--fonte-pequena);
+}
+
+
+/* Alerta */
+
+.alerta {
+    background-color: #FEF3C7;
+    border: 1px solid var(--cor-destaque);
+    padding: var(--espaco-3);
+    margin-bottom: var(--espaco-3);
+    border-radius: 4px;
+}
+
+
+/* Toast */
+
+.toast {
+    display: none;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+
+    background-color: var(--cor-secundaria);
+    color: var(--cor-branco);
+
+    padding: var(--espaco-3);
+    border-radius: 4px;
+
+    z-index: 100;
+}
+
+
+/* Rodapé */
+
+footer {
+    padding: var(--espaco-4);
+    color: var(--cor-texto-claro);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* ========================= */
+/* BREAKPOINT 1 */
+/* Celulares pequenos */
+/* ========================= */
+
+@media (max-width: 575px) {
+
+    main {
+        grid-template-columns: 1fr;
+        padding: var(--espaco-3);
+    }
+
+    header h1 {
+        font-size: var(--fonte-titulo);
+    }
+
+    /* Botão hambúrguer */
+
+    .menu-mobile {
+        display: block;
+    }
+
+    /* Menu escondido */
+
+    nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    /* Menu aberto */
+
+    nav.ativo {
+        display: flex;
+    }
+
+    nav a {
+        display: block;
+        margin: var(--espaco-2);
+    }
+
+    /* Dropdown no celular */
+
+    .dropdown-menu {
+        position: static;
+    }
+}
+
+
+/* ========================= */
+/* BREAKPOINT 2 */
+/* Celulares maiores */
+/* ========================= */
+
+@media (min-width: 576px) and (max-width: 767px) {
+
+    main {
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+    main > section,
+    main > h2,
+    main > form {
+        grid-column: 1 / 7;
+    }
+}
+
+
+/* ========================= */
+/* BREAKPOINT 3 */
+/* Tablets */
+/* ========================= */
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+    main {
+        grid-template-columns: repeat(12, 1fr);
+    }
+
+    main > section,
+    main > h2,
+    main > form {
+        grid-column: 1 / 13;
+    }
+}
+
+
+/* ========================= */
+/* BREAKPOINT 4 */
+/* Notebooks e desktops */
+/* ========================= */
+
+@media (min-width: 992px) and (max-width: 1199px) {
+
+    main {
+        grid-template-columns: repeat(12, 1fr);
+        max-width: 900px;
+    }
+}
+
+
+/* ========================= */
+/* BREAKPOINT 5 */
+/* Telas grandes */
+/* ========================= */
+
+@media (min-width: 1200px) {
+
+    main {
+        grid-template-columns: repeat(12, 1fr);
+        max-width: 1000px;
+    }
+}
